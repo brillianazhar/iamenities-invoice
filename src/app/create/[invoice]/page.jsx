@@ -249,7 +249,10 @@ const CreateInvoice = () => {
         />
       )}
 
-      <div ref={printRef} className="w-[1000px] flex flex-col gap-y-5 p-10">
+      <div
+        ref={printRef}
+        className="w-[1000px] fixed flex flex-col gap-y-5 p-10"
+      >
         <div className="flex justify-between">
           <div className="flex flex-col gap-y-3">
             <img
@@ -301,32 +304,32 @@ const CreateInvoice = () => {
             <thead>
               <tr>
                 <th className="border-t-2 border-l-2 border-r border-b border-black w-[150px]">
-                  <p className="">BANYAKNYA</p>
+                  <p className="py-2 px-3">BANYAKNYA</p>
                 </th>
                 <th className="border-t-2 border-l border-r border-b border-black">
-                  <p className="">NAMA BARANG</p>
+                  <p className="py-2 px-3">NAMA BARANG</p>
                 </th>
                 <th className="border-t-2 border-l border-r border-b border-black">
-                  <p className="">HARGA</p>
+                  <p className="py-2 px-3">HARGA</p>
                 </th>
                 <th className="border-t-2 border-l border-r-2 border-b border-black">
-                  <p className="">JUMLAH</p>
+                  <p className="py-2 px-3">JUMLAH</p>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td className="border-t border-l-2 border-r border-b border-black">
-                  <p className="">{pcs} pcs</p>
+                  <p className="py-2 px-3">{pcs} pcs</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
-                  <p className="">Slipper</p>
+                  <p className="py-2 px-3">Slipper</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
-                  <p className="">{harga}</p>
+                  <p className="py-2 px-3">{harga}</p>
                 </td>
                 <td className="border-t border-l border-r-2 border-b border-black">
-                  <p className="">{formatRupiah(total)}</p>
+                  <p className="py-2 px-3">{formatRupiah(total)}</p>
                 </td>
               </tr>
               {/* Baris kosong */}
@@ -351,7 +354,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 ">Pembayaran harap ditransfer ke</p>
+                  <p className="pl-2 py-2">Pembayaran harap ditransfer ke</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -365,7 +368,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 ">BANK BRI - SUTRISNO</p>
+                  <p className="pl-2 py-2">BANK BRI - SUTRISNO</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -379,7 +382,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 ">No.rek : 3726-01-025091-53-4</p>
+                  <p className="pl-2 py-2">No.rek : 3726-01-025091-53-4</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -407,13 +410,13 @@ const CreateInvoice = () => {
                   colSpan="2"
                   className="border-t border-l-2 border-r border-b-2 border-black text-center font-semibold"
                 >
-                  <p className=" capitalize">{totalText} rupiah</p>
+                  <p className="py-2 px-3 capitalize">{totalText} rupiah</p>
                 </td>
                 <td className="font-semibold border-t border-l border-r border-black">
-                  <p className="">TOTAL RP</p>
+                  <p className="py-2 px-3">TOTAL RP</p>
                 </td>
                 <td className="border-t border-l border-r-2 border-b-2 border-black font-semibold">
-                  <p className="">{formatRupiah(total)}</p>
+                  <p className="py-2 px-3">{formatRupiah(total)}</p>
                 </td>
               </tr>
             </tbody>
