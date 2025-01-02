@@ -47,8 +47,8 @@ const Template = () => {
         </div>
         <div className="flex justify-center pb-8">
           <div>
-            <div className="py-1 px-3 border-1 border-black rounded-full">
-              <p className="text-xs">Coming soon</p>
+            <div className="py-1 px-3 bg-black rounded-full">
+              <p className="text-xs text-white">Coming soon</p>
             </div>
             <div className="mt-5" onClick={() => router.back()}>
               <p className="text-xs text-center">Back</p>
