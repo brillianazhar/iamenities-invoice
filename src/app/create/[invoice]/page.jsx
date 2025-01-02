@@ -139,13 +139,13 @@ const CreateInvoice = () => {
       <div className="min-h-screen w-full flex flex-col">
         <div className="bg-black p-8 flex gap-x-1 justify-between">
           <div className="flex flex-col">
-            <p className="font-outline-1 text-transparent font-bold text-[32px] leading-none">
+            <p className="font-outline-1 text-transparent font-bold text-[32px] ">
               {template.name && template.name.toUpperCase()}
             </p>
-            <p className="text-white font-bold text-[32px] leading-none">
+            <p className="text-white font-bold text-[32px] ">
               {template.name && template.name.toUpperCase()}
             </p>
-            <p className="font-outline-1 text-transparent font-bold text-[32px] leading-none">
+            <p className="font-outline-1 text-transparent font-bold text-[32px] ">
               {template.name && template.name.toUpperCase()}
             </p>
           </div>
@@ -249,10 +249,7 @@ const CreateInvoice = () => {
         />
       )}
 
-      <div
-        ref={printRef}
-        className="w-[1000px] fixed flex flex-col gap-y-5 p-10"
-      >
+      <div ref={printRef} className="w-[1000px] flex flex-col gap-y-5 p-10">
         <div className="flex justify-between">
           <div className="flex flex-col gap-y-3">
             <img
@@ -262,43 +259,39 @@ const CreateInvoice = () => {
               // height={100}
             />
             <div className="flex items-end gap-x-2">
-              <p className="text-lg leading-none whitespace-nowrap">
-                FAKTUR No.
-              </p>
-              <div className="border-b-3 border-dotted border-black w-full">
-                <p className="text-center leading-none">{`${faktur}/${month}/${year}`}</p>
+              <p className="text-lg  whitespace-nowrap">FAKTUR No.</p>
+              <div className="w-full">
+                <p className="text-center ">{`${faktur}/${month}/${year}`}</p>
               </div>
             </div>
             <div className="flex items-end gap-x-2">
-              <p className="text-lg leading-none whitespace-nowrap">D/O No.</p>
-              <div className="border-b-3 border-dotted border-black w-full"></div>
+              <p className="text-lg  whitespace-nowrap">D/O No.</p>
+              <div className="w-full"></div>
             </div>
           </div>
           <div className="flex flex-col gap-y-3">
             <div className="flex items-end gap-x-2 w-[300px]">
-              <p className="text-xs font-semibold leading-none whitespace-nowrap">
+              <p className="text-xs font-semibold  whitespace-nowrap">
                 TANGGAL
               </p>
-              <div className="border-b-3 border-dotted border-black w-full">
-                <p className="text-center leading-none">
+              <div className="w-full">
+                <p className="text-center">
                   {date ? formatDateLong(new Date(date)) : ""}
                 </p>
               </div>
             </div>
             <div className="flex flex-col items-end gap-y-0 w-[300px]">
               <div className="w-full">
-                <p className="text-xs leading-none font-semibold">
-                  KEPADA YTH.
-                </p>
+                <p className="text-xs  font-semibold">KEPADA YTH.</p>
               </div>
-              <div className="border-b-3 border-dotted border-black w-full">
-                <p className="leading-none">{template.alamat1}</p>
+              <div className="w-full">
+                <p className="">{template.alamat1}</p>
               </div>
-              <div className="border-b-3 border-dotted border-black w-full">
-                <p className="leading-none">{template.alamat2}</p>
+              <div className="w-full">
+                <p className="">{template.alamat2}</p>
               </div>
-              <div className="border-b-3 border-dotted border-black w-full">
-                <p className="leading-none">{template.alamat3}</p>
+              <div className="w-full">
+                <p className="">{template.alamat3}</p>
               </div>
             </div>
           </div>
@@ -308,32 +301,32 @@ const CreateInvoice = () => {
             <thead>
               <tr>
                 <th className="border-t-2 border-l-2 border-r border-b border-black w-[150px]">
-                  <p className="leading-none">BANYAKNYA</p>
+                  <p className="">BANYAKNYA</p>
                 </th>
                 <th className="border-t-2 border-l border-r border-b border-black">
-                  <p className="leading-none">NAMA BARANG</p>
+                  <p className="">NAMA BARANG</p>
                 </th>
                 <th className="border-t-2 border-l border-r border-b border-black">
-                  <p className="leading-none">HARGA</p>
+                  <p className="">HARGA</p>
                 </th>
                 <th className="border-t-2 border-l border-r-2 border-b border-black">
-                  <p className="leading-none">JUMLAH</p>
+                  <p className="">JUMLAH</p>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td className="border-t border-l-2 border-r border-b border-black">
-                  <p className="leading-none">{pcs} pcs</p>
+                  <p className="">{pcs} pcs</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
-                  <p className="leading-none">Slipper</p>
+                  <p className="">Slipper</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
-                  <p className="leading-none">{harga}</p>
+                  <p className="">{harga}</p>
                 </td>
                 <td className="border-t border-l border-r-2 border-b border-black">
-                  <p className="leading-none">{formatRupiah(total)}</p>
+                  <p className="">{formatRupiah(total)}</p>
                 </td>
               </tr>
               {/* Baris kosong */}
@@ -358,9 +351,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 leading-none">
-                    Pembayaran harap ditransfer ke
-                  </p>
+                  <p className="pl-2 ">Pembayaran harap ditransfer ke</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -374,7 +365,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 leading-none">BANK BRI - SUTRISNO</p>
+                  <p className="pl-2 ">BANK BRI - SUTRISNO</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -388,9 +379,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 leading-none">
-                    No.rek : 3726-01-025091-53-4
-                  </p>
+                  <p className="pl-2 ">No.rek : 3726-01-025091-53-4</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -418,13 +407,13 @@ const CreateInvoice = () => {
                   colSpan="2"
                   className="border-t border-l-2 border-r border-b-2 border-black text-center font-semibold"
                 >
-                  <p className="leading-none capitalize">{totalText} rupiah</p>
+                  <p className=" capitalize">{totalText} rupiah</p>
                 </td>
                 <td className="font-semibold border-t border-l border-r border-black">
-                  <p className="leading-none">TOTAL RP</p>
+                  <p className="">TOTAL RP</p>
                 </td>
                 <td className="border-t border-l border-r-2 border-b-2 border-black font-semibold">
-                  <p className="leading-none">{formatRupiah(total)}</p>
+                  <p className="">{formatRupiah(total)}</p>
                 </td>
               </tr>
             </tbody>
