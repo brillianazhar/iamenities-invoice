@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../css/globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 
 const geistSans = Geist({
