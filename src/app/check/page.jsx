@@ -31,7 +31,7 @@ const Check = () => {
   if (loading) {
     return (
       <div className="flex h-screen w-full items-center justify-center bg-black">
-        <Spinner />
+        <Spinner color="default" />
       </div>
     );
   }

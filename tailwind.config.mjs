@@ -12,6 +12,6 @@ export default {
   theme: {
     extend: {},
   },
-  darkMode: "class",
+  darkMode: false,
   plugins: [nextui()],
 };

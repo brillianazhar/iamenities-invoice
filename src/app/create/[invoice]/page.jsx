@@ -80,16 +80,20 @@ const CreateInvoice = () => {
 
   const handleCreate = async () => {
     const element = printRef.current;
+    const namaDoc = `invoice-${id}-${formatDateLong(new Date(date)).replace(
+      /\s+/g,
+      ""
+    )}`;
     if (!element) {
       return;
     }
 
     const canvas = await html2canvas(element);
-    const data = canvas.toDataURL("image/png");
+    const data = canvas.toDataURL("image/jpg");
 
     const link = document.createElement("a");
     link.href = data;
-    link.download = "screenshot.png";
+    link.download = namaDoc;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -139,13 +143,13 @@ const CreateInvoice = () => {
       <div className="min-h-screen w-full flex flex-col">
         <div className="bg-black p-8 flex gap-x-1 justify-between">
           <div className="flex flex-col">
-            <p className="font-outline-1 text-transparent font-bold text-[32px] ">
+            <p className="font-outline-1 text-transparent font-bold text-[32px] leading-none">
               {template.name && template.name.toUpperCase()}
             </p>
-            <p className="text-white font-bold text-[32px] ">
+            <p className="text-white font-bold text-[32px] leading-none">
               {template.name && template.name.toUpperCase()}
             </p>
-            <p className="font-outline-1 text-transparent font-bold text-[32px] ">
+            <p className="font-outline-1 text-transparent font-bold text-[32px] leading-none">
               {template.name && template.name.toUpperCase()}
             </p>
           </div>
@@ -155,72 +159,105 @@ const CreateInvoice = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col p-8">
-          <div className="flex flex-col gap-y-6">
-            <DatePicker
-              label="Tanggal"
-              labelPlacement="outside"
-              variant="underlined"
-              classNames={{ label: "text-xs" }}
-              value={date}
-              onChange={setDate}
-            />
-            <Input
-              label="No Faktur"
-              labelPlacement="outside"
-              placeholder="No faktur"
-              variant="underlined"
-              radius="full"
-              classNames={{ label: "text-xs" }}
-              autoComplete="off"
-              value={faktur}
-              onValueChange={setFaktur}
-            />
-            <Input
-              label="Pcs"
-              labelPlacement="outside"
-              placeholder="Pcs"
-              variant="underlined"
-              radius="full"
-              classNames={{ label: "text-xs" }}
-              autoComplete="off"
-              type="number"
-              value={pcs}
-              onValueChange={setPcs}
-            />
-            <Input
-              label="Harga/pcs"
-              labelPlacement="outside"
-              placeholder="Harga/pcs"
-              variant="underlined"
-              radius="full"
-              classNames={{ label: "text-xs" }}
-              autoComplete="off"
-              type="number"
-              value={harga}
-              onValueChange={setHarga}
-              startContent={<p>Rp</p>}
-            />
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            modalCreate.onOpen();
+          }}
+        >
+          <div className="flex flex-col p-8">
+            <div className="flex flex-col gap-y-6">
+              <DatePicker
+                size="sm"
+                label="Tanggal"
+                labelPlacement="outside"
+                variant="underlined"
+                classNames={{ label: "text-xs", selectorIcon: "text-black" }}
+                value={date}
+                onChange={setDate}
+                isRequired
+              />
+              <Input
+                size="sm"
+                label="No Faktur"
+                labelPlacement="outside"
+                placeholder="No faktur"
+                variant="underlined"
+                radius="full"
+                classNames={{ label: "text-xs" }}
+                autoComplete="off"
+                value={faktur}
+                onValueChange={setFaktur}
+                required
+                isRequired
+              />
+              <Input
+                size="sm"
+                label="Pcs"
+                labelPlacement="outside"
+                placeholder="Pcs"
+                variant="underlined"
+                radius="full"
+                classNames={{ label: "text-xs" }}
+                autoComplete="off"
+                type="number"
+                value={pcs}
+                onValueChange={setPcs}
+                required
+                isRequired
+              />
+              <Input
+                size="sm"
+                label="Harga/pcs"
+                labelPlacement="outside"
+                placeholder="Harga/pcs"
+                variant="underlined"
+                radius="full"
+                classNames={{ label: "text-xs" }}
+                autoComplete="off"
+                type="number"
+                value={harga}
+                onValueChange={setHarga}
+                startContent={<p className="text-xs">Rp</p>}
+                required
+                isRequired
+              />
+            </div>
+            <div className="flex justify-center items-center w-full flex-col gap-y-2 mt-10">
+              <Button
+                variant="bordered"
+                className="bg-black border-black text-white w-full"
+                // onPress={() => modalCreate.onOpen()}
+                type="submit"
+              >
+                Create
+              </Button>
+              <Button
+                variant="bordered"
+                className="border-black w-full"
+                onPress={() => modalReset.onOpen()}
+              >
+                Reset
+              </Button>
+              <Button
+                size="sm"
+                disableAnimation
+                disableRipple
+                className="bg-transparent"
+                isIconOnly
+                onPress={() => router.back()}
+              >
+                Back
+              </Button>
+            </div>
           </div>
-          <div className="flex flex-col gap-y-2 mt-10">
-            <Button
-              variant="bordered"
-              className="bg-black text-white"
-              onPress={() => modalCreate.onOpen()}
-            >
-              Create
-            </Button>
-            <Button variant="bordered" onPress={() => modalReset.onOpen()}>
-              Reset
-            </Button>
-            <Button
-              color="danger"
-              variant="bordered"
-              onPress={() => router.push("/")}
-            >
-              Cancel
-            </Button>
-          </div>
+        </form>
+      </div>
+      <div className="bg-black p-1">
+        <div>
+          <p className="text-white text-[10px] text-center">
+            {`© ${year} Brillian Azhar D. All rights reserved.`}
+          </p>
         </div>
       </div>
       {/* Modal Confirm Retest */}
@@ -320,16 +357,16 @@ const CreateInvoice = () => {
             <tbody>
               <tr>
                 <td className="border-t border-l-2 border-r border-b border-black">
-                  <p className="py-2 px-3">{pcs} pcs</p>
+                  <p className="pb-2 px-3">{pcs} pcs</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
-                  <p className="py-2 px-3">Slipper</p>
+                  <p className="pb-2 px-3">Slipper</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
-                  <p className="py-2 px-3">{harga}</p>
+                  <p className="pb-2 px-3">{harga}</p>
                 </td>
                 <td className="border-t border-l border-r-2 border-b border-black">
-                  <p className="py-2 px-3">{formatRupiah(total)}</p>
+                  <p className="pb-2 px-3">{formatRupiah(total)}</p>
                 </td>
               </tr>
               {/* Baris kosong */}
@@ -354,7 +391,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 py-2">Pembayaran harap ditransfer ke</p>
+                  <p className="pl-2 pb-2">Pembayaran harap ditransfer ke</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -368,7 +405,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 py-2">BANK BRI - SUTRISNO</p>
+                  <p className="pl-2 pb-2">BANK BRI - SUTRISNO</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -382,7 +419,7 @@ const CreateInvoice = () => {
                   &nbsp;
                 </td>
                 <td className="border-t border-l border-r border-b border-black text-start">
-                  <p className="pl-2 py-2">No.rek : 3726-01-025091-53-4</p>
+                  <p className="pl-2 pb-2">No.rek : 3726-01-025091-53-4</p>
                 </td>
                 <td className="border-t border-l border-r border-b border-black">
                   &nbsp;
@@ -410,13 +447,13 @@ const CreateInvoice = () => {
                   colSpan="2"
                   className="border-t border-l-2 border-r border-b-2 border-black text-center font-semibold"
                 >
-                  <p className="py-2 px-3 capitalize">{totalText} rupiah</p>
+                  <p className="pb-2 px-3 capitalize">{totalText} rupiah</p>
                 </td>
                 <td className="font-semibold border-t border-l border-r border-black">
-                  <p className="py-2 px-3">TOTAL RP</p>
+                  <p className="pb-2 px-3">TOTAL RP</p>
                 </td>
                 <td className="border-t border-l border-r-2 border-b-2 border-black font-semibold">
-                  <p className="py-2 px-3">{formatRupiah(total)}</p>
+                  <p className="pb-2 px-3">{formatRupiah(total)}</p>
                 </td>
               </tr>
             </tbody>
