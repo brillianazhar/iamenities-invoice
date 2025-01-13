@@ -20,7 +20,7 @@ const NavbarLayout = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-white lg:w-[400px] lg:mx-auto">
       <div className="flex justify-between items-center pr-2 py-2 pl-[30px]">
         <Link
           href="/about"
@@ -30,7 +30,8 @@ const NavbarLayout = ({ children }) => {
           <SquareArrowOutUpRight size={14} color="#ffffff" />
         </Link>
         <Dropdown
-          size="sm"
+          // size="sm"
+          placement="bottom-end"
           classNames={{
             base: "bg-white border-2 border-black rounded-lg p-0",
             content: "text-right rounded-lg p-0",

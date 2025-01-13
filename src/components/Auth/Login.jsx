@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <div className="h-screen lg:w-[400px] lg:mx-auto flex flex-col justify-between bg-white">
       <div className="flex h-full flex-col justify-between p-8">
         <div className="flex flex-col items-center justify-center pt-10">
           <p className="text-3xl text-black">

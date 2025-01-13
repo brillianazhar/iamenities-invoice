@@ -140,7 +140,7 @@ const CreateInvoice = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full flex flex-col">
+      <div className="min-h-screen w-full lg:w-[400px] lg:mx-auto bg-white flex flex-col">
         <div className="bg-black p-8 flex gap-x-1 justify-between">
           <div className="flex flex-col">
             <p className="font-outline-1 text-transparent font-bold text-[32px] leading-none">
