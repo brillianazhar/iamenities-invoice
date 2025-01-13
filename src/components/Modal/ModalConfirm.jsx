@@ -66,7 +66,7 @@ const ModalConfirm = ({
               </Button>
               <Button
                 className={`w-1/2 ${
-                  type == "success" ? "bg-blue-500" : "bg-[#D92D20]"
+                  type == "success" ? "bg-black" : "bg-[#D92D20]"
                 } text-white`}
                 onPress={onConfirm}
                 id="btn-confirm-modal"

@@ -18,31 +18,43 @@ const Template = () => {
         </div>
         <div className="flex flex-col gap-y-10">
           <div
-            className="flex justify-between items-center border-b-2 pb-2 border-black"
+            className="flex justify-between items-center border-b-2 pb-2 border-black group hover:cursor-pointer"
             onClick={() => router.push("/create/azana")}
           >
-            <p className="text-[40px] text-black">
+            <p className="text-[40px] text-black group-hover:translate-x-5 transition-all">
               <i>AZANA</i>
             </p>
-            <ArrowRight size={28} color="#000000" />
+            <ArrowRight
+              size={28}
+              color="#000000"
+              className="group-hover:-translate-x-3 transition-all"
+            />
           </div>
           <div
-            className="flex justify-between items-center border-b-2 pb-2 border-black"
+            className="flex justify-between items-center border-b-2 pb-2 border-black group hover:cursor-pointer"
             onClick={() => router.push("/create/braga")}
           >
-            <p className="text-[40px] text-black">
+            <p className="text-[40px] text-black group-hover:translate-x-5 transition-all">
               <i>BRAGA</i>
             </p>
-            <ArrowRight size={28} color="#000000" />
+            <ArrowRight
+              size={28}
+              color="#000000"
+              className="group-hover:-translate-x-3 transition-all"
+            />
           </div>
           <div
-            className="flex justify-between items-center border-b-2 pb-2 border-black"
+            className="flex justify-between items-center border-b-2 pb-2 border-black group hover:cursor-pointer"
             onClick={() => router.push("/create/owabong")}
           >
-            <p className="text-[40px] text-black">
+            <p className="text-[40px] text-black group-hover:translate-x-5 transition-all">
               <i>OWABONG</i>
             </p>
-            <ArrowRight size={28} color="#000000" />
+            <ArrowRight
+              size={28}
+              color="#000000"
+              className="group-hover:-translate-x-3 transition-all"
+            />
           </div>
         </div>
         <div className="flex justify-center pb-8">
@@ -51,7 +63,7 @@ const Template = () => {
               <p className="text-xs text-white">Coming soon</p>
             </div>
             <div className="mt-5" onClick={() => router.back()}>
-              <p className="text-xs text-center">Back</p>
+              <p className="text-xs text-center cursor-pointer">Back</p>
             </div>
           </div>
         </div>
